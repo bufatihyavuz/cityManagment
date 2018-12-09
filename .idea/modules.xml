@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/cityManagment.iml" filepath="$PROJECT_DIR$/cityManagment.iml" />
+      <module fileurl="file://$PROJECT_DIR$/cm-business/cm-business.iml" filepath="$PROJECT_DIR$/cm-business/cm-business.iml" />
+      <module fileurl="file://$PROJECT_DIR$/cm-common/cm-common.iml" filepath="$PROJECT_DIR$/cm-common/cm-common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/cm-entity/cm-entity.iml" filepath="$PROJECT_DIR$/cm-entity/cm-entity.iml" />
+      <module fileurl="file://$PROJECT_DIR$/cm-repo/cm-repo.iml" filepath="$PROJECT_DIR$/cm-repo/cm-repo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/cm-view/cm-view.iml" filepath="$PROJECT_DIR$/cm-view/cm-view.iml" />
+      <module fileurl="file://$PROJECT_DIR$/cm-web/cm-web.iml" filepath="$PROJECT_DIR$/cm-web/cm-web.iml" />
+    </modules>
+  </component>
+</project>

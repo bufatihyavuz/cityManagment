@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="cm-view:war">
+    <output-path>$PROJECT_DIR$/cm-view/target</output-path>
+    <root id="archive" name="cm-view-1.0-SNAPSHOT.war">
+      <element id="artifact" artifact-name="cm-view:war exploded" />
+    </root>
+  </artifact>
+</component>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="cm-business" />
+        <module name="cm-common" />
+        <module name="cm-entity" />
+        <module name="cm-repo" />
+        <module name="cm-view" />
+        <module name="cm-web" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="cityManagment" target="1.5" />
+      <module name="cm-business" target="1.6" />
+      <module name="cm-common" target="1.5" />
+      <module name="cm-entity" target="1.5" />
+      <module name="cm-repo" target="1.6" />
+      <module name="cm-view" target="1.5" />
+      <module name="cm-web" target="1.5" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context.xsd
+       http://www.springframework.org/schema/tx
+       http://www.springframework.org/schema/tx/spring-tx.xsd">
+
+    <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+        <property name="driverClassName" value="com.microsoft.sqlserver.jdbc.SQLServerDriver"/>
+        <property name="url" value="jdbc:sqlserver://localhost:16000;database=cm"/>
+        <property name="username" value="fatih"/>
+        <property name="password" value="fatih"/>
+    </bean>
+
+    <!-- Hibernate 4 XML SessionFactory Bean definition -->
+    <bean id="hibernate4SessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+        <property name="dataSource" ref="dataSource"/>
+        <property name="annotatedClasses">
+            <list>
+                <value>com.cm.entity.Apartment</value>
+                <value>com.cm.entity.Buildings</value>
+                <value>com.cm.entity.Dues</value>
+                <value>com.cm.entity.Expense</value>
+                <value>com.cm.entity.Floor</value>
+                <value>com.cm.entity.Income</value>
+                <value>com.cm.entity.Member</value>
+                <value>com.cm.entity.MemberBuildings</value>
+                <value>com.cm.entity.MemberNotification</value>
+                <value>com.cm.entity.MemberRequest</value>
+                <value>com.cm.entity.MemberRole</value>
+                <value>com.cm.entity.Notification</value>
+                <value>com.cm.entity.Phone</value>
+                <value>com.cm.entity.Renter</value>
+                <value>com.cm.entity.Staff</value>
+                <value>com.cm.entity.Vehicle</value>
+                <value>com.cm.entity.UnitType</value>
+                <value>com.cm.entity.Unit</value>
+                <value>com.cm.entity.Debt</value>
+                <value>com.cm.entity.ExpenseType</value>
+                <value>com.cm.entity.IncomeType</value>
+                <value>com.cm.entity.StaffType</value>
+                <value>com.cm.entity.ViewApartmentMaxFloorNo</value>
+            </list>
+        </property>
+
+        <property name="hibernateProperties">
+            <props>
+                <prop key="hibernate.dialect">org.hibernate.dialect.SQLServerDialect</prop>
+                <prop key="hibernate.show_sql">true</prop>
+                <prop key="hibernate.connection.url">jdbc:sqlserver://localhost:16000;database=cm</prop>
+                <prop key="hibernate.connection.driver_class">com.microsoft.sqlserver.jdbc.SQLServerDriver</prop>
+            </props>
+        </property>
+    </bean>
+    <context:component-scan base-package="com.cm.web"/>
+    <context:component-scan base-package="com.cm.business"/>
+    <context:component-scan base-package="com.cm.repo"/>
+    <context:component-scan base-package="com.cm.common.*"/>
+    <context:component-scan base-package="com.cm.entity"/>
+    <tx:annotation-driven/>
+
+    <bean id="transactionManager"
+          class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+        <property name="sessionFactory" ref="hibernate4SessionFactory"/>
+    </bean>
+
+    <!-- DAO START
+    <bean id="FamilyDao" class="com.cm.repo.FamilyDAOImpl">
+        <property name="sessionFactory" ref="hibernate4SessionFactory"/>
+    </bean>
+    <bean id="ManagerDao" class="com.cm.repo.ManagerDAOImpl">
+        <property name="sessionFactory" ref="hibernate4SessionFactory"/>
+    </bean>
+    <bean id="CustomerDao" class="com.cm.repo.CustomerDAOImpl">
+        <property name="sessionFactory" ref="hibernate4SessionFactory"/>
+    </bean>
+    <!- DAO END -->
+
+    <!-- SERVICE START
+    <bean id="FamilyService" class="com.cm.business.FamilyServiceImpl">
+        <property name="FamilyDao" ref="FamilyDao" />
+    </bean>
+    <bean id="ManagerService" class="com.cm.business.ManagerServiceImpl">
+        <property name="ManagerDao" ref="ManagerDao" />
+    </bean>
+    <bean id="CustomerService" class="com.cm.business.CustomerServiceImpl">
+        <property name="CustomerDao" ref="CustomerDao" />
+    </bean>
+    <!- SERVICE END -->
+</beans>
